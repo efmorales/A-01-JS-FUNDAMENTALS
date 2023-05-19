@@ -8,10 +8,26 @@ const x = 6
 
 // 1. Write a function that takes 2 numbers as arguments and returns the sum of both numbers and the variable "x" using without using arrow functions.
 
+const firstFunction = function (num1 = 1, num2 = 2) {
+  return num1 + num2 + x
+}
+
+console.log('========== 1st solution ==========');
+console.log(firstFunction(2, 3));
+
 // 2. Write a function that takes 2 numbers as arguments and returns the sum of both numbers and the variable "x", using arrow functions.
+
+const secondFunction = (num1 = 1, num2 = 2) => num1 + num2 + x;
+
+console.log('========== 2nd solution ==========');
+console.log(secondFunction(2, 3));
 
 // 3. Write a function that returns another function. (use arrow functions please)
 
+const callbackMultiplier = (callback, num1 = 1, num2 = 2, multiplier) => callback(num1, num2) * multiplier
+
+console.log('========== 3rd solution ==========');
+console.log(callbackMultiplier(secondFunction, 2, 3, 2));
 
 // 4. Given the following code explain why the function that returns from getFunction still has access to variable "y" even when "y" is not a global variable.
 
@@ -24,7 +40,9 @@ const getFunction = () => {
   return insideFunc;
 };
 
+console.log('========== 4th solution ==========');
 console.log(getFunction()(2))
+console.log('Because y=5 gets read as a local variable before insideFunc is executed through the return, once insideFunc is executed the program already knows y = 5, so it has no problems assigning that value alongside the new return (y+a)');
 
 // 5. write a function that takes "couldThrowError()" as a callback argument.
 // within that function call "couldThrowError" and and log the result to the console.
@@ -32,13 +50,30 @@ console.log(getFunction()(2))
 // If there is an error log "sorry, there was an error" to the console.
 
 const couldThrowError = () => {
-  
-  if(Math.ceil(Math.random() * 2) < 2){
+
+  if (Math.ceil(Math.random() * 2) < 2) {
+
     throw new Error("Error was thrown");
+
   }
-  
+
   return 'success'
 }
+
+const callbackHandler = (callback) => {
+  try {
+
+    return callback();
+
+  } catch (e) {
+
+    console.log("sorry there was an error")
+
+  }
+}
+
+console.log('========== 5th solution ==========');
+console.log(callbackHandler(couldThrowError));
 
 
 ////////////////////////////////////////////////////////////
@@ -95,12 +130,12 @@ const userPersonalData = {
   name: 'peter',
   age: '56',
   birthday: 'jan 1st',
- };
- const userGameData = {
+};
+const userGameData = {
   score: 4546,
   accomplishments: ['won award for being good gamer', 'won 1st win', 'got good score on the weekend'],
- };
-  
+};
+
 
 // 8. Combine the personalData and userGameData into a user object that is equal to the object below, by using the spread operator:
 // const user = {
@@ -116,7 +151,7 @@ const userPersonalData = {
 
 
 // 9. Make a copy of your new user object but override the birthday to december 31st
- 
+
 
 // 10. Use the spread operator to make a copy of the accomplishments array and store it in a new variable
 
@@ -133,9 +168,9 @@ var user = {
     food: ['pizza', 'tacos', 'burgers', 'italian'],
     movies: [],
   },
- };
+};
 
- 
+
 // 12. Once you have grabbed the favorite foods. Destructure the food array to grab only the first 2 values. //
 
 
@@ -155,7 +190,7 @@ const userInfo = {
   name: 'Peter',
   favorites: {
     needs: {
-      food:  ['burger', 'pizza', 'tacos', 'fried chicken', 'sushi'],
+      food: ['burger', 'pizza', 'tacos', 'fried chicken', 'sushi'],
     },
     wants: {
       things: ['cars', 'jewelry'],
@@ -166,20 +201,20 @@ const userInfo = {
 var fetchData = () => new Promise((resolve, reject) => {
   console.log('fetchingData from imaginary database')
   setTimeout(() => {
-       try {
-         // fetchingData from imaginary database
-         if((Math.ceil(Math.random() * 2)) < 2){
-           throw new Error('Error!')
-         }
-         resolve({name: 'john', age:42})
-        } catch(error) {
-          reject(error);
-        }
+    try {
+      // fetchingData from imaginary database
+      if ((Math.ceil(Math.random() * 2)) < 2) {
+        throw new Error('Error!')
+      }
+      resolve({ name: 'john', age: 42 })
+    } catch (error) {
+      reject(error);
+    }
   }, 5000);
 });
 
 
-module.exports =  fetchData;
+module.exports = fetchData;
 
 
 // //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -190,15 +225,15 @@ module.exports =  fetchData;
 var fetchData = () => new Promise((resolve, reject) => {
   console.log('fetchingData from imaginary database')
   setTimeout(() => {
-       try {
-         // fetchingData from imaginary database
-         if((Math.ceil(Math.random() * 2)) < 2){
-           throw new Error('Error!')
-         }
-         resolve({name: 'john', age:42})
-        } catch(error) {
-          reject(error);
-        }
+    try {
+      // fetchingData from imaginary database
+      if ((Math.ceil(Math.random() * 2)) < 2) {
+        throw new Error('Error!')
+      }
+      resolve({ name: 'john', age: 42 })
+    } catch (error) {
+      reject(error);
+    }
   }, 5000);
 });
 
