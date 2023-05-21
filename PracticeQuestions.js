@@ -112,13 +112,50 @@ const userData = [
 // Each object should have the id of the user and the amount of favorite foods they have.
 // example: [{id: '111', favoriteFoods: 2}]
 
+let objectMaker = (array) => {
+  let newArray = array.map((element) => {
+    return {
+      id: element.id,
+      favoriteFoods: element.favorites.food.length
+    }
+  } )
+  return newArray
+}
+
+console.log('========== 6th solution ==========');
+console.log(objectMaker(userData));
 
 // 6. Given the data above, use ".reduce" to make an array of all the names
 // of the people who have pizza as one of their favorite foods.
 // example: ['Peter', 'Mary']
 
+let pizzaPeople = (array) => {
+  return array.reduce((accumulator, element) => {
+     if (element.favorites.food.includes("pizza")){
+      accumulator.push(element.name);
+     }
+     return accumulator
+  }, [])
+}
+
+console.log('========== 7th solution ==========');
+console.log(pizzaPeople(userData))
 
 // 7. Show an an example of a switch statement being used
+
+console.log('========== 8th solution ==========');
+
+switch (userData[0].id) {
+  case "111":
+    
+    console.log('id matched, access authorized');
+    break
+
+  default:
+
+    console.log('id not recognized, access denied');
+    break
+}
 
 
 ////////////////////////////////////////////////////////////
