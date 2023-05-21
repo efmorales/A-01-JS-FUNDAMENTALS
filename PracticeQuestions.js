@@ -183,12 +183,29 @@ const userGameData = {
 //  accomplishments: ['won award for being good gamer', 'won 1st win', 'got good score on the weekend'],
 // }
 
+let combinedObjects = (obj1, obj2) => {
+  return {
+    ...obj1,
+    ...obj2
+  }
+}
 
+console.log('========== 9th solution ==========');
 
+const newUser = combinedObjects(userPersonalData, userGameData)
+
+console.log(newUser);
 
 
 // 9. Make a copy of your new user object but override the birthday to december 31st
 
+const newUserBirthday = {
+  ...newUser,
+  birthday: "dec 31th"
+}
+
+console.log('========== 10th solution ==========');
+console.log(newUserBirthday);
 
 // 10. Use the spread operator to make a copy of the accomplishments array and store it in a new variable
 
