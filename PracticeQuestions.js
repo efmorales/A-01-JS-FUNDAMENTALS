@@ -209,7 +209,10 @@ console.log(newUserBirthday);
 
 // 10. Use the spread operator to make a copy of the accomplishments array and store it in a new variable
 
+const newArray = [...newUserBirthday.accomplishments]
 
+console.log('========== 11th solution ==========');
+console.log(newArray)
 
 
 //  11.Given the object bellow, use object destructuring to get the favorite food value (user.name.favoriteThings.food)
