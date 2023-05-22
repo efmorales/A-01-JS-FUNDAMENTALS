@@ -118,7 +118,7 @@ let objectMaker = (array) => {
       id: element.id,
       favoriteFoods: element.favorites.food.length
     }
-  } )
+  })
   return newArray
 }
 
@@ -131,10 +131,10 @@ console.log(objectMaker(userData));
 
 let pizzaPeople = (array) => {
   return array.reduce((accumulator, element) => {
-     if (element.favorites.food.includes("pizza")){
+    if (element.favorites.food.includes("pizza")) {
       accumulator.push(element.name);
-     }
-     return accumulator
+    }
+    return accumulator
   }, [])
 }
 
@@ -147,7 +147,7 @@ console.log('========== 8th solution ==========');
 
 switch (userData[0].id) {
   case "111":
-    
+
     console.log('id matched, access authorized');
     break
 
@@ -227,15 +227,51 @@ var user = {
   },
 };
 
+console.log('========== 12th solution ==========');
+const food = [...user.favoriteThings.food]
+
+console.log(food)
 
 // 12. Once you have grabbed the favorite foods. Destructure the food array to grab only the first 2 values. //
 
+const onlyTwoItems = [food[0], food[1]]
+
+console.log('========== 13th solution ==========');
+console.log(onlyTwoItems)
 
 // 13. use object destructuring and the rest operator to transform the following array into 3 variables: name, age, and food. 
 //    the food variable should have all the array items starting from the third one.
 const data = ['peter', '34', 'apple', 'oranges', 'pizza', 'tacos'];
 
+// let objectMakerTwo = (array, callback) => {
+//   let newObject = {
+//     name: array[0],
+//     age: array[1],
+//     food: callback(array),
+//   }
 
+//   return newObject
+// }
+
+let callbackTwo = (array) => {
+  let returnArray = new Array;
+  for (let i = 2; i < array.length; i++) {
+    returnArray.push(array[i])
+
+  }
+  return returnArray;
+}
+
+// console.log(objectMakerTwo(data, callbackTwo));
+
+const name = data[0];
+const age = data[1];
+const foodTwo = callbackTwo(data);
+
+console.log('========== 14th solution ==========');
+console.log(name);
+console.log(age);
+console.log(foodTwo);
 
 // 14. use object destructuring to grab the following from the userInfo object: 
 // - The user's name and in a constant named userName.
