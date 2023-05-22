@@ -291,6 +291,18 @@ const userInfo = {
   },
 };
 
+const userName = userInfo.name;
+const favoriteFood = userInfo.favorites.needs.food;
+const favoritheThing = userInfo.favorites.wants.things[0];
+const secondFavoritheThing = userInfo.favorites.wants.things[1];
+
+console.log('========== 15th solution ==========');
+console.log(userName);
+console.log(favoriteFood);
+console.log(favoritheThing);
+console.log(secondFavoritheThing);
+
+
 var fetchData = () => new Promise((resolve, reject) => {
   console.log('fetchingData from imaginary database')
   setTimeout(() => {
@@ -334,8 +346,26 @@ var fetchData = () => new Promise((resolve, reject) => {
 // //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 15. Call fetchData (which returns a promise) and use the .then()  method to log the value the promise resolves with to the javascript console.
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+console.log('========== 16th solution ==========');
+fetchData()
+  .then((value) => {
+    console.log(value);
+  }).catch((error) => {
+    console.error(error);
+  });
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 16. Call fetchData (which returns a promise) and use the async/await method to log the value the promise resolves with to the javascript console.
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+async function logData() {
+  try {
+
+    const value = await fetchData();
+    console.log(value);
+  } catch {
+    console.error(error);
+  }
+}
+
+console.log('========== 17th solution ==========');
+logData();
